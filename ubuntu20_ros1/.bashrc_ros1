@@ -8,7 +8,13 @@ fi
 export ROS_MASTER_URI=http://localhost:11311
 export ROS_HOSTNAME=localhost
 
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"/git/H-RACE_Rule/src/lib/acados/lib"
+export ACADOS_SOURCE_DIR="/git/H-RACE_Rule/src/lib/acados"
+
 # alias
 alias cb='cd /catkin_ws && catkin_make'
 alias cs='source /catkin_ws/devel/setup.bash'
 alias ccd='cd /catkin_ws'
+alias cm='catkin_make -DCMAKE_BUILD_TYPE=Release'
+alias sd='source devel/setup.bash'
+alias sr='source ~/.bashrc'
