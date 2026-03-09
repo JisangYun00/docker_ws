@@ -1,0 +1,14 @@
+source /opt/ros/noetic/setup.bash
+
+# catkin workspace가 빌드된 경우에만 source
+if [ -f /catkin_ws/devel/setup.bash ]; then
+    source /catkin_ws/devel/setup.bash
+fi
+
+export ROS_MASTER_URI=http://localhost:11311
+export ROS_HOSTNAME=localhost
+
+# alias
+alias cb='cd /catkin_ws && catkin_make'
+alias cs='source /catkin_ws/devel/setup.bash'
+alias ccd='cd /catkin_ws'

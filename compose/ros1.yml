@@ -1,0 +1,20 @@
+services:
+  ros1:
+    image: osrf/ros:noetic-desktop-full
+    container_name: ros1_container
+    stdin_open: true   # -i
+    tty: true          # -t
+    network_mode: host
+    hostname: ros1-noetic
+    privileged: true
+    environment:
+      - DISPLAY=$DISPLAY
+      - ROS_MASTER_URI=http://localhost:11311
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /home/jisang/docker_ws/shared_workspace:/workspace
+      - /home/jisang/docker_ws/git:/git
+      - /home/jisang/docker_ws/ubuntu20_ros1/catkin_ws:/catkin_ws
+      - /home/jisang/docker_ws/ubuntu20_ros1/.bashrc_ros1:/root/.bashrc
+    working_dir: /
+    command: bash

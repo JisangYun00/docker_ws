@@ -1,0 +1,12 @@
+# 폴더 내용은 무시, 폴더 구조만 유지
+git/*
+!git/.gitkeep
+
+shared_workspace/*
+!shared_workspace/.gitkeep
+
+ubuntu20_ros1/catkin_ws/*
+!ubuntu20_ros1/catkin_ws/.gitkeep
+
+ubuntu24/colcon_ws/*
+!ubuntu24/colcon_ws/.gitkeep
