@@ -1,17 +1,10 @@
 source /opt/ros/humble/setup.bash
 
-# colcon workspace가 빌드된 경우에만 source
-if [ -f /colcon_ws/install/setup.bash ]; then
-    source /colcon_ws/install/setup.bash
-fi
-
 export ROS_DOMAIN_ID=0
 
 # alias
-alias cb='cd /colcon_ws && colcon build'
-alias cbr='cd /colcon_ws && colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release'
-alias cs='source /colcon_ws/install/setup.bash'
-alias ccd='cd /colcon_ws'
+alias cb='colcon build'
+alias cbr='colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release'
 alias sd='source install/setup.bash'
 alias sr='source ~/.bashrc'
 alias terminator='NO_AT_BRIDGE=1 terminator >/dev/null 2>&1 & disown'

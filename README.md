@@ -85,7 +85,21 @@ source /opt/ros/noetic/setup.bash
 
 export ROS_MASTER_URI=http://localhost:11311
 export ROS_HOSTNAME=localhost
+
+alias cb='catkin_make'
+alias cbr='catkin_make -DCMAKE_BUILD_TYPE=Release'
+alias sd='source devel/setup.bash'
+alias sr='source ~/.bashrc'
 ```
+
+### alias 설명
+
+| alias | 명령 | 설명 |
+|-------|------|------|
+| `cb`  | `catkin_make` | 현재 워크스페이스에서 빌드 |
+| `cbr` | `catkin_make -DCMAKE_BUILD_TYPE=Release` | Release 모드 빌드 |
+| `sd`  | `source devel/setup.bash` | 현재 워크스페이스 devel source |
+| `sr`  | `source ~/.bashrc` | bashrc 재로드 |
 
 ### 사용법
 
@@ -167,10 +181,8 @@ source /opt/ros/humble/setup.bash
 export ROS_DOMAIN_ID=0   # 같은 네트워크에서 다른 ROS2 환경과 격리할 때 변경
 
 # colcon alias
-alias cb='cd /colcon_ws && colcon build'
-alias cbr='cd /colcon_ws && colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release'
-alias cs='source /colcon_ws/install/setup.bash'
-alias ccd='cd /colcon_ws'
+alias cb='colcon build'
+alias cbr='colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release'
 alias sd='source install/setup.bash'
 ```
 
@@ -178,11 +190,9 @@ alias sd='source install/setup.bash'
 
 | alias | 명령 | 설명 |
 |-------|------|------|
-| `cb`  | `colcon build` | colcon_ws에서 빌드 |
+| `cb`  | `colcon build` | 현재 워크스페이스에서 빌드 |
 | `cbr` | `colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release` | Release 모드 빌드 |
-| `cs`  | `source install/setup.bash` | colcon_ws install source |
-| `ccd` | `cd /colcon_ws` | colcon_ws로 이동 |
-| `sd`  | `source install/setup.bash` | 현재 위치에서 source |
+| `sd`  | `source install/setup.bash` | 현재 워크스페이스 install source |
 | `sr`  | `source ~/.bashrc` | bashrc 재로드 |
 
 ### 사용법
@@ -222,11 +232,11 @@ docker compose -f ~/docker_ws/compose/ros2.yml up -d
 #### colcon workspace 빌드 예시
 
 ```bash
-# 컨테이너 진입 후
-mkdir -p /colcon_ws/src
-cd /colcon_ws
-colcon build          # 또는 cb (alias)
-source install/setup.bash  # 또는 cs (alias)
+# 컨테이너 진입 후 — 워크스페이스 이름은 자유롭게
+mkdir -p /my_ws/src
+cd /my_ws
+cb                         # colcon build
+sd                         # source install/setup.bash
 ```
 
 ---
