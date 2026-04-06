@@ -253,6 +253,18 @@ docker logs ros2_container   # 컨테이너 로그 확인
 
 ---
 
+## 프로젝트별 환경변수 추가 예시
+
+프로젝트 전용 라이브러리나 경로가 필요한 경우 각 `.bashrc`에 직접 추가.
+
+```bash
+# 예시: acados 라이브러리 사용 시
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:"/git/my_project/lib/acados/lib"
+export ACADOS_SOURCE_DIR="/git/my_project/lib/acados"
+```
+
+---
+
 ## 주의사항
 
 - 컨테이너를 `down` 해도 마운트된 폴더 안의 파일은 호스트에 유지됨
