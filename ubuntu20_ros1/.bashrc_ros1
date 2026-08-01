@@ -1,5 +1,10 @@
 source /opt/ros/noetic/setup.bash
 
+# bag 재생용 커스텀 메시지 (autohyu_msgs, novatel_oem7_msgs)
+if [ -f /workspace/msg_ws/devel/setup.bash ]; then
+    source /workspace/msg_ws/devel/setup.bash
+fi
+
 export ROS_MASTER_URI=http://localhost:11311
 export ROS_HOSTNAME=localhost
 
@@ -9,3 +14,5 @@ alias cbr='catkin_make -DCMAKE_BUILD_TYPE=Release'
 alias sd='source devel/setup.bash'
 alias sr='source ~/.bashrc'
 alias terminator='NO_AT_BRIDGE=1 terminator >/dev/null 2>&1 & disown'
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
